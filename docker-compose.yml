@@ -2,7 +2,7 @@ version: "3.8"
 
 services:
   backend:
-    build: .
+    build: ./backend
     ports:
       - "8080:8080"
     depends_on:
@@ -13,6 +13,14 @@ services:
       SPRING_DATASOURCE_PASSWORD: aditya
     networks:
       - student-net
+
+  frontend:
+    build: ./frontend
+    ports:
+      - "5173:5173"
+    networks:
+      - student-net
+
 
   db:
     image: postgres:15
